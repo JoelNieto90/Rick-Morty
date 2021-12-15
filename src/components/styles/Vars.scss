@@ -1,0 +1,24 @@
+@import "./Media.scss";
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600;700;900&display=swap');
+
+/*Paleta de Colores*/
+$Color-Fondo-Home: linear-gradient(180deg, #13131D 0%, #13131D 77.08%, rgba(25, 25, 37, 0.72) 100%);
+$Color-Primary: #262535;
+$Color-white: #F2EBEF;
+$Color-gray1: #A9A9A9;
+$Color-gray2: #BABABA;
+
+$font-black: #080105;
+$font-color-Orange: #ec550f;
+$font-blueligth: #207fcc;
+$font-color-NavBar: #ffffff;
+
+/*Font Family*/
+$weight1: 200;
+$weight2: 300;
+$weight3: 400;
+$weight4: 600;
+$weight5: 700;
+$weight6: 900;
+$Source-Pro: 'Source Sans Pro', sans-serif;
