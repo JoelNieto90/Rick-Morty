@@ -1,6 +1,7 @@
 import { React, useEffect, useState } from "react";
 import getDataFromAPI from "../services/getDataCharacters";
 import { Table, Row, Col } from "antd";
+import ModalCharacter from "../components/ModalCharacter";
 import "antd/dist/antd.css";
 import "../styles/Characters.scss";
 import letters from "../assets/Characters.png";
@@ -23,16 +24,10 @@ const Characters = () => {
       dataIndex: "img",
       key: "img",
       render: (chars) => (
-        <img
-          src={chars}
-          alt="Pictures"
-          style={{
-            width: "50px",
-            borderRadius: "10px",
-            filter: "drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.25))",
-          }}
-        />
-      )
+        <>
+          <ModalCharacter data={chars} />
+        </>
+      ),
     },
     {
       title: "Name",
@@ -53,7 +48,7 @@ const Characters = () => {
 
   return (
     <>
-      <Row >
+      <Row>
         <Col span={24} className="Chars">
           <img className="Chars_Img" src={letters} alt="letters" />
           <div className="Chars_Table">
@@ -63,7 +58,7 @@ const Characters = () => {
               dataSource={chars}
               pagination={true}
               loading={loading}
-              scroll={{x: "90%"}}
+              scroll={{ x: "90%" }}
               className="Chars_Table--Data"
             ></Table>
           </div>
