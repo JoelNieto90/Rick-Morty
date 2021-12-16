@@ -1,6 +1,7 @@
 import { React, useEffect, useState } from "react";
 import { Row, Col } from "antd";
 import { getDataCharactersByID } from "../services/getDataCharacters";
+import ModalCharacter from "../components/ModalCharacter";
 
 const CharactersEpisodes = ({ urlCharacter }) => {
   const [url, setUrl] = useState([]);
@@ -15,6 +16,7 @@ const CharactersEpisodes = ({ urlCharacter }) => {
     <Row gutter={24}>
       <Col span={24}>
         <p style={{ textAlign: "center" }}>{url.name}</p>
+        <ModalCharacter data={url} />
       </Col>
     </Row>
   );
