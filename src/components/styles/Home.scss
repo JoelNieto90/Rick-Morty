@@ -6,4 +6,34 @@
   align-items: center;
   color: white;
   background: $Color-Fondo-Home;
+  &_Img {
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content: center;
+    &--picture1 {
+      z-index: 1;
+      width: 60%;
+    }
+    &--picture2 {
+      width: 50%;
+      margin-top: -8%;
+    }
+  }
+  &_Cards {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: -24%;
+  }
+  &_Text {
+    font-weight: $weight3;
+    width: 80%;
+    color: $Color-gray1;
+    margin-top: 5%;
+    margin-left: 20%;
+    letter-spacing: 0.2em;
+    font-size: calc(0.5em + 1.5vw);
+    text-shadow: 10px 4px 4px rgba(0, 0, 0, 0.25);
+  }
 }
