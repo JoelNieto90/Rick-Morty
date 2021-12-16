@@ -16,6 +16,7 @@ const ModalCharacter = ({data}) => {
   const handleCancel = () => {
     setIsModalVisible(false);
   };
+
   return (
     <div>
       <img
@@ -97,8 +98,8 @@ const ModalCharacter = ({data}) => {
             <p>Episodes: {data.episodes}</p>
             <List
               size="small"
-              bordered
               dataSource={data.episodeUrl}
+              className="ModalChars_Info--List"
               renderItem={(item) => <List.Item>{item}</List.Item>}
             />
           </div>

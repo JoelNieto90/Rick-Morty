@@ -29,6 +29,11 @@
       letter-spacing: 3px;
       color: $Color-white;
     }
+    &--List {
+      box-shadow: 0px 0px 8px #000000;
+      background: $Color-white2;
+      color: $Color-Primary;
+    }
   }
 }
 
@@ -48,4 +53,9 @@
   color: $Color-white;
   font-weight: 600;
   background: linear-gradient(180deg, #262535 0%, #262535 60.94%, rgba(38, 37, 53, 0.85) 100%);
+}
+
+.ant-list-items {
+  height: 150px;
+  overflow-y: scroll;
 }
