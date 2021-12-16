@@ -1,5 +1,5 @@
 import { React, useEffect, useState } from "react";
-import getDataFromAPI from "../services/getDataCharacters";
+import {getDataCharacters} from "../services/getDataCharacters";
 import { Table, Row, Col } from "antd";
 import ModalCharacter from "../components/ModalCharacter";
 import "antd/dist/antd.css";
@@ -12,7 +12,7 @@ const Characters = () => {
 
   useEffect(() => {
     setLoading(true);
-    getDataFromAPI().then((data) => {
+    getDataCharacters().then((data) => {
       setChars(data);
     });
     setLoading(false);

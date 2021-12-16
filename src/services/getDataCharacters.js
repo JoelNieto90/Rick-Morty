@@ -1,4 +1,4 @@
-const getDataCharacters = () => {
+export function getDataCharacters() {
   return fetch(`https://rickandmortyapi.com/api/character`)
     .then((response) => response.json())
     .then((data) => {
@@ -20,4 +20,23 @@ const getDataCharacters = () => {
     });
 };
 
-export default getDataCharacters;
+
+export function getDataCharactersByID(url) {
+  return fetch(`${url}`)
+    .then((response) => response.json())
+    .then((data) => {
+      return {
+        id: data.id,
+        name: data.name,
+        img: data.image,
+        status: data.status,
+        species: data.species,
+        type: data.type,
+        gender: data.gender,
+        location: data.location.name,
+        origin: data.origin.name,
+        episodes: data.episode.length,
+        episodeUrl: data.episode,
+      };
+    });
+}
