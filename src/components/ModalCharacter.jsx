@@ -18,7 +18,7 @@ const ModalCharacter = ({data}) => {
   return (
     <div>
       <img
-        src={data}
+        src={data.img}
         alt="Pictures"
         style={{
           width: "50px",
@@ -28,7 +28,7 @@ const ModalCharacter = ({data}) => {
         onClick={showModal}
       />
       <Modal
-        title="Modal Test"
+        title={data.name}
         visible={isModalVisible}
         centered
         onOk={handleOk}

@@ -21,11 +21,12 @@ const Characters = () => {
   const columns = [
     {
       title: "Avatar",
-      dataIndex: "img",
-      key: "img",
+      dataIndex: "",
+      key: "",
       render: (chars) => (
         <>
           <ModalCharacter data={chars} />
+          {console.log(chars)}
         </>
       ),
     },
