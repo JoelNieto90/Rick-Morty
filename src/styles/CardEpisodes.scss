@@ -1,0 +1,25 @@
+@import "./App.scss";
+
+.CardEpisodes {
+  width: 80%;
+  &_Col {
+    margin-bottom: 15px;
+    color: $Color-white !important;
+    &--Card {
+      height: 25%;
+      font-size: calc(0.2em + 0.8vw);
+      text-align: center;
+      color: $Color-gray2;
+    }
+  }
+}
+
+.ant-card-bordered {
+  border: 0px;
+}
+
+.ant-card-body {
+  background:$Color-Primary;
+  padding: 0;
+  margin: 0;
+}

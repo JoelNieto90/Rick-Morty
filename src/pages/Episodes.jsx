@@ -1,5 +1,6 @@
 import { React, useEffect, useState } from "react";
 import getDataFromAPI from "../services/getDataEpisodes";
+import CardEpisodes from "../components/CardEpisodes";
 import { Row, Col } from "antd";
 import letters from "../assets/episodes.png";
 import "../styles/Episodes.scss";
@@ -18,7 +19,7 @@ const Episodes = () => {
         <Col span={24} className="Episodes">
           <img className="Episodes_Img" src={letters} alt="letters" />
           <p>Barra de busqueda</p>
-          <p>Cards</p>
+          <CardEpisodes data={epis} />
         </Col>
       </Row>
     </>
