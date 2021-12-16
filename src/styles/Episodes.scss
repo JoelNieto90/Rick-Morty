@@ -3,4 +3,10 @@
 .Episodes {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  color: white;
+  background: $Color-Fondo-Home;
+  &_Img {
+    width: 30%;
+  }
 }
