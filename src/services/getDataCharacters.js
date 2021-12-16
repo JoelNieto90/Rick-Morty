@@ -1,4 +1,4 @@
-const getDataFromAPI = () => {
+const getDataCharacters = () => {
   return fetch(`https://rickandmortyapi.com/api/character`)
     .then((response) => response.json())
     .then((data) => {
@@ -17,4 +17,4 @@ const getDataFromAPI = () => {
     });
 };
 
-export default getDataFromAPI;
+export default getDataCharacters;
