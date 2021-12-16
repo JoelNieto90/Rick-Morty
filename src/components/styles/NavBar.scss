@@ -1,0 +1,32 @@
+@import "./App.scss";
+
+.NavBar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background: #13131D;
+  height: 70px;
+  &_Img {
+    display: flex;
+    margin-left: 20px;
+    &--picture {
+      height: 45px;
+      filter: invert(1)
+    }
+  }
+  &_Link {
+    display: flex;
+    flex-direction: row;
+    font-size: calc(0.5em + 0.8vw);
+    font-weight: $weight6;
+    margin-right: 20px;
+    a {
+      margin: 10px;
+      color: #FFFEFE;
+    }
+    a:hover {
+      color: #FE0A3D;
+    }
+  }
+}
