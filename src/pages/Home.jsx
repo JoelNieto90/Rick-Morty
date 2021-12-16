@@ -1,10 +1,10 @@
 import React from "react";
-import Card from "./Card";
-import "./styles/Home.scss";
-import logo from "./assets/logo.png";
-import RickMorty from "./assets/rick&morty.png";
-import photo1 from "./assets/EpisodiosWall.jpg";
-import photo2 from "./assets/wallpapersPers.jpg";
+import Card from "../components/Card";
+import "../styles/Home.scss";
+import logo from "../assets/logo.png";
+import RickMorty from "../assets/rick&morty.png";
+import photo1 from "../assets/EpisodiosWall.jpg";
+import photo2 from "../assets/wallpapersPers.jpg";
 
 const Home = () => {
   return (
