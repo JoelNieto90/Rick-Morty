@@ -9,9 +9,12 @@ const getDataCharacters = () => {
           img: character.image,
           status: character.status,
           species: character.species,
+          type: character.type,
           gender: character.gender,
+          location: character.location.name,
           origin: character.origin.name,
           episodes: character.episode.length,
+          episodeUrl: character.episode,
         };
       });
     });

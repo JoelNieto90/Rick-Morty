@@ -1,0 +1,51 @@
+@import "./App.scss";
+
+.ModalChars {
+  display: flex;
+  flex-direction: row;
+  &_Picture {
+    width: 40%;
+    margin-right: 5%;
+    &--Status {
+      border: 1px solid white;
+      border-radius: 5px;
+      padding: 5px 10%;
+      box-shadow: 0px 0px 8px #000000;
+    }
+    &--Gender {
+      border: 1px solid white;
+      border-radius: 5px;
+      padding: 5px 20px;
+      box-shadow: 0px 0px 8px #000000;
+    }
+  }
+  &_Info {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    p {
+      font-weight: $weight4;
+      font-size: calc(0.3em + 0.85vw);
+      letter-spacing: 3px;
+      color: $Color-white;
+    }
+  }
+}
+
+.ant-modal-header {
+  background: $Color-Primary !important;
+  box-shadow: 0px 0px 10px #000000 !important;
+}
+
+.ant-modal-title {
+  font-weight: 600 !important;
+  color: $Color-white !important;
+  letter-spacing: 4px !important;
+  font-size: calc(1em + 0.8vw) !important;
+}
+
+.ant-modal-body {
+  color: $Color-white;
+  font-weight: 600;
+  background: linear-gradient(180deg, #262535 0%, #262535 60.94%, rgba(38, 37, 53, 0.85) 100%);
+}

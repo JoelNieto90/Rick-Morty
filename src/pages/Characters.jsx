@@ -26,7 +26,6 @@ const Characters = () => {
       render: (chars) => (
         <>
           <ModalCharacter data={chars} />
-          {console.log(chars)}
         </>
       ),
     },
