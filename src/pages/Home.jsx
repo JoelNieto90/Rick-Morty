@@ -15,7 +15,7 @@ const Home = () => {
       </section>
       <section className="Home_Cards">
         <Card photo={photo1} text="Characters" link="characters" />
-        <Card photo={photo2} text="Episodes" link="espisodes" />
+        <Card photo={photo2} text="Episodes" link="episodes" />
       </section>
       <section className="Home_Text">
         <p>
