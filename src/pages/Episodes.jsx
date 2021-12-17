@@ -38,6 +38,7 @@ const Episodes = () => {
     if (searchShow) {
       return (
         <>
+          {console.log(search)}
           <CardIndividual epis={epis} type="2" />
         </>
       );
