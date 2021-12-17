@@ -15,8 +15,10 @@ const CharactersEpisodes = ({ urlCharacter }) => {
   return (
     <Row gutter={24}>
       <Col span={24}>
-        <p style={{ textAlign: "center" }}>{url.name}</p>
-        <ModalCharacter data={url} />
+        <p style={{ display: "flex", flexDirection: "row", justifyContent: "center", alignItems: "center" }}>
+          {url.name}
+          <ModalCharacter data={url} />
+        </p>
       </Col>
     </Row>
   );

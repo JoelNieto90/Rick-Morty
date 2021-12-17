@@ -97,6 +97,7 @@ const ModalCharacter = ({data}) => {
             <p>Location: {data.location}</p>
             <p>Episodes: {data.episodes}</p>
             <List
+              key={data.id}
               size="small"
               dataSource={data.episodeUrl}
               className="ModalChars_Info--List"

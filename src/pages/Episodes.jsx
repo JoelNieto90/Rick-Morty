@@ -1,5 +1,6 @@
 import { React, useEffect, useState } from "react";
-import getDataFromAPI from "../services/getDataEpisodes";
+import { getDataEpisodes } from "../services/getDataEpisodes";
+import { getDataEpisodesByName } from "../services/getDataEpisodes";
 import CardEpisodes from "../components/CardEpisodes";
 import { Row, Col, Input } from "antd";
 import letters from "../assets/episodes.png";
@@ -9,18 +10,44 @@ const { Search } = Input;
 const Episodes = () => {
   const [epis, setEpis] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [searchShow, setSearchShow] = useState(false);
   const [search, setSearch] = useState("");
-
-  const onSearch = (value) => console.log(value);
 
   useEffect(() => {
     setLoading(true)
-    getDataFromAPI().then((data) => {
+    getDataEpisodes().then((data) => {
       setEpis(data);
-      setSearch(data)
     });
     setLoading(false)
   }, []);
+
+  const onSearch = (value) => {
+    setSearch(value);
+    if (value === "" ||  value === null) {
+      setSearchShow(false);
+    } else {
+      setSearchShow(true);
+      getDataEpisodesByName(value).then((data) => {
+        setEpis(data);
+      });
+    }
+  };
+
+  function searchList() {
+    if (searchShow) {
+      return (
+        <>
+          <p>Hiciste busqueda y me mostrare: {search}</p>
+          {console.log(epis)}
+        </>
+      )
+    } else {
+      // return <CardEpisodes data={epis} />;
+      return <h1 style={{color: "white"}}>Todas las cards</h1>
+    }
+  }
+
+
   return (
     <>
       <Row>
@@ -30,11 +57,10 @@ const Episodes = () => {
             placeholder="Search for Episodes"
             loading={loading}
             onSearch={onSearch}
-            style={{ width: "40%" }}
+            style={{ width: "55%", marginBottom: "50px" }}
             enterButton
           />
-          {search === "" ? <p>Nada</p> : <CardEpisodes data={epis} />}
-          {/* <CardEpisodes data={epis} /> */}
+          {searchList()}
         </Col>
       </Row>
     </>
