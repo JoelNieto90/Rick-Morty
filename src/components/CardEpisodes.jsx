@@ -1,6 +1,6 @@
 import React from 'react';
-import { Row, Col, Card } from "antd";
-import CharactersEpisodes from "./CharactersEpisodes";
+import { Row, Col } from "antd";
+import CardIndividual from "./CardIndividual";
 import "../styles/CardEpisodes.scss";
 
 function CardEpisodes({ data }) {
@@ -16,21 +16,7 @@ function CardEpisodes({ data }) {
             xl={8}
             className="CardEpisodes_Col"
           >
-            <Card cover={<img alt="Card" src={epi.img} />}>
-              <section className="CardEpisodes_Col--Card">
-                <div className="Card_Text">
-                  <span>{epi.name}</span>
-                  <span>{epi.air_date}</span>
-                </div>
-                <div>
-                  {epi.charactersUrl.map((charsUrl) => (
-                    <>
-                      <CharactersEpisodes urlCharacter={charsUrl} />
-                    </>
-                  ))}
-                </div>
-              </section>
-            </Card>
+            <CardIndividual epis={epi} type="1" />
           </Col>
         ))}
       </Row>

@@ -2,6 +2,7 @@ import { React, useEffect, useState } from "react";
 import { getDataEpisodes } from "../services/getDataEpisodes";
 import { getDataEpisodesByName } from "../services/getDataEpisodes";
 import CardEpisodes from "../components/CardEpisodes";
+import CardIndividual from "../components/CardIndividual";
 import { Row, Col, Input } from "antd";
 import letters from "../assets/episodes.png";
 import "../styles/Episodes.scss";
@@ -37,13 +38,11 @@ const Episodes = () => {
     if (searchShow) {
       return (
         <>
-          <p>Hiciste busqueda y me mostrare: {search}</p>
-          {console.log(epis)}
+          <CardIndividual epis={epis} type="2" />
         </>
-      )
+      );
     } else {
-      // return <CardEpisodes data={epis} />;
-      return <h1 style={{color: "white"}}>Todas las cards</h1>
+      return <CardEpisodes data={epis} />;
     }
   }
 
