@@ -17,8 +17,8 @@ const CharactersEpisodes = ({ urlCharacter }) => {
       <Col span={24}>
         <p style={{ display: "flex", flexDirection: "row", justifyContent: "center", alignItems: "center" }}>
           {url.name}
-          <ModalCharacter data={url} />
         </p>
+        <ModalCharacter data={url} />
       </Col>
     </Row>
   );

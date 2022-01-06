@@ -14,37 +14,43 @@ const images = [
 
 export function getDataEpisodes () {
   return fetch(`https://rickandmortyapi.com/api/episode`)
-    .then((response) => response.json())
-    .then((data) => {
-      return data.results.map((episode, i) => {
-        return {
-          id: episode.id,
-          name: episode.name,
-          air_date: episode.air_date,
-          episode: episode.episode,
-          characters: episode.characters.length,
-          charactersUrl: episode.characters,
-          url: episode.url,
-          created: episode.create,
-          img: images[i],
-        };
-      });
-    });
+		.then((response) => response.json())
+		.then((data) => {
+			return data.results.map((episode, i) => {
+				return {
+					id: episode.id,
+					name: episode.name,
+					air_date: episode.air_date,
+					episode: episode.episode,
+					characters: episode.characters.length,
+					charactersUrl: episode.characters,
+					url: episode.url,
+					created: episode.create,
+					img: images[i],
+				};
+			});
+		})
+		.catch((error) => console.log(error));
 };
 
 export function getDataEpisodesByName(searchName) {
   return fetch(`https://rickandmortyapi.com/api/episode/?name=${searchName}`)
-    .then((response) => response.json())
-    .then((data) => {
-      return {
-        id: data.results[0].id,
-        name: data.results[0].name,
-        air_date: data.results[0].air_date,
-        episode: data.results[0].episode,
-        charactersUrl: data.results[0].characters,
-        url: data.results[0].url,
-        created: data.results[0].create,
-        img: images[data.results[0].id],
-      };
-    });
+		.then((response) => response.json())
+		.then((data) => {
+			let resultsEspisodes = [];
+			for (let i = 0; i < data.results.length; i++) {
+				resultsEspisodes.push({
+					id: data.results[i].id,
+					name: data.results[i].name,
+					air_date: data.results[i].air_date,
+					episode: data.results[i].episode,
+					charactersUrl: data.results[i].characters,
+					url: data.results[i].url,
+					created: data.results[i].create,
+					img: images[data.results[i].id],
+				});
+			}
+			return resultsEspisodes;
+		})
+		.catch((error) => console.log(error));
 }

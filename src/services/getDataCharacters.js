@@ -17,7 +17,8 @@ export function getDataCharacters() {
           episodeUrl: character.episode,
         };
       });
-    });
+    })
+  .catch((error) => console.log(error))
 };
 
 
@@ -38,5 +39,6 @@ export function getDataCharactersByID(url) {
         episodes: data.episode.length,
         episodeUrl: data.episode,
       };
-    });
+    })
+  .catch((error) => console.log(error))
 }
