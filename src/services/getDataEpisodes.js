@@ -12,8 +12,8 @@ const images = [
 	"https://occ-0-3062-116.1.nflxso.net/dnm/api/v6/9pS1daC2n6UGc3dUogvWIPMR_OU/AAAABcG9_SURPUqC8Ut-XH8Lb9RDXrnzZZfSioQVZeTE4WztK9fP6UWD4DjzniAoFMyFf6uP5AFQlXHDxjcj8aG2eaVwpUGC9y8vulKHwJyncxG5gHuY.jpg?r=8e9",
 ];
 
-export function getDataEpisodes() {
-	return fetch(`https://rickandmortyapi.com/api/episode`)
+export function getDataEpisodes(searchName) {
+	return fetch(`https://rickandmortyapi.com/api/episode/?name=${searchName}`)
 		.then((response) => response.json())
 		.then((data) => {
 			return data.results.map((episode, i) => {
@@ -29,28 +29,6 @@ export function getDataEpisodes() {
 					img: images[i],
 				};
 			});
-		})
-		.catch((error) => console.log(error));
-}
-
-export function getDataEpisodesByName(searchName) {
-	return fetch(`https://rickandmortyapi.com/api/episode/?name=${searchName}`)
-		.then((response) => response.json())
-		.then((data) => {
-			let resultsEspisodes = [];
-			for (let i = 0; i < data.results.length; i++) {
-				resultsEspisodes.push({
-					id: data.results[i].id,
-					name: data.results[i].name,
-					air_date: data.results[i].air_date,
-					episode: data.results[i].episode,
-					charactersUrl: data.results[i].characters,
-					url: data.results[i].url,
-					created: data.results[i].create,
-					img: images[data.results[i].id],
-				});
-			}
-			return resultsEspisodes;
 		})
 		.catch((error) => console.log(error));
 }

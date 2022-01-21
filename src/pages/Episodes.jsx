@@ -1,33 +1,22 @@
-import { React, useEffect, useState } from "react";
-import { getDataEpisodes } from "../services/getDataEpisodes";
-import { getDataEpisodesByName } from "../services/getDataEpisodes";
 import CardEpisodes from "../components/CardEpisodes";
-import { Row, Col, Input } from "antd";
+import { Row, Col, Input, Spin } from "antd";
 import letters from "../assets/episodes.png";
 import "../styles/Episodes.scss";
+import { useFetchEpisodes } from "../hooks/useFetchEpisodes";
+import { useState } from "react/cjs/react.development";
 const { Search } = Input;
 
 const Episodes = () => {
-	const [epis, setEpis] = useState([]);
-	const [loading, setLoading] = useState(false);
-
-	useEffect(() => {
-		setLoading(true);
-		getDataEpisodes().then((data) => {
-			setEpis(data);
-		});
-		setLoading(false);
-	}, []);
+	const [search, setSearch] = useState("");
+	const { data, loading } = useFetchEpisodes(search);
 
 	const onSearch = (value) => {
 		if (value === "" || value === null) {
-			getDataEpisodes().then((data) => {
-				setEpis(data);
-			});
+			setSearch('');
+			return data;
 		} else {
-			getDataEpisodesByName(value).then((data) => {
-				setEpis(data);
-			});
+			setSearch(value);
+			return data;
 		}
 	};
 
@@ -42,7 +31,9 @@ const Episodes = () => {
 					style={{ width: "55%", marginBottom: "50px" }}
 					enterButton
 				/>
-				<CardEpisodes data={epis} />
+				<p>Loading</p>
+				{loading && <Spin size='large' />}
+				<CardEpisodes data={data} />
 			</Col>
 		</Row>
 	);

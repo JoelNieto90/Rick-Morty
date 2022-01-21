@@ -1,10 +1,10 @@
-import React from 'react';
+import React from "react";
 import { Row, Col } from "antd";
 import CardIndividual from "./CardIndividual";
 import "../styles/CardEpisodes.scss";
 
 function CardEpisodes({ data }) {
-  return (
+	return (
 		<div className='CardEpisodes'>
 			<Row gutter={16}>
 				{data.map((epi) => (
