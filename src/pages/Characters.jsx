@@ -1,5 +1,4 @@
-import { React, useEffect, useState } from "react";
-import {getDataCharacters} from "../services/getDataCharacters";
+import { useFetchCharacters } from "../hooks/useFetchCharacters";
 import { Table, Row, Col } from "antd";
 import ModalCharacter from "../components/ModalCharacter";
 import "antd/dist/antd.css";
@@ -7,25 +6,16 @@ import "../styles/Characters.scss";
 import letters from "../assets/Characters.png";
 
 const Characters = () => {
-  const [chars, setChars] = useState([]);
-  const [loading, setLoading] = useState(false);
-
-  useEffect(() => {
-    setLoading(true);
-    getDataCharacters().then((data) => {
-      setChars(data);
-    });
-    setLoading(false);
-  }, []);
+  const { data, loading } = useFetchCharacters();
 
   const columns = [
     {
       title: "Avatar",
       dataIndex: "",
       key: "",
-      render: (chars) => (
+      render: (data) => (
         <>
-          <ModalCharacter data={chars} />
+          <ModalCharacter data={data} />
         </>
       ),
     },
@@ -53,9 +43,9 @@ const Characters = () => {
           <img className="Chars_Img" src={letters} alt="letters" />
           <div className="Chars_Table">
             <Table
-              rowKey={(chars) => chars.id}
+              rowKey={(data) => data.id}
               columns={columns}
-              dataSource={chars}
+              dataSource={data}
               pagination={true}
               loading={loading}
               scroll={{ x: "90%" }}
