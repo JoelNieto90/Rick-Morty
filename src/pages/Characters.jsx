@@ -5,8 +5,8 @@ import "antd/dist/antd.css";
 import "../styles/Characters.scss";
 import letters from "../assets/Characters.png";
 
-const Characters = () => {
-  const { data, loading } = useFetchCharacters();
+const Characters = ({value}) => {
+  const { data, loading } = useFetchCharacters(value);
 
   const columns = [
     {
@@ -57,5 +57,9 @@ const Characters = () => {
     </>
   );
 }
+
+Characters.defaultProps = {
+	value: "https://rickandmortyapi.com/api/character",
+};
 
 export default Characters;

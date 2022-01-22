@@ -2,7 +2,7 @@ import React from "react";
 import { Card } from "antd";
 import CharactersEpisodes from "./CharactersEpisodes";
 
-const CardIndividual = ({ epis, type }) => {
+const CardIndividual = ({ epis }) => {
 	return (
 		<Card cover={<img alt='Card' src={epis.img} />}>
 			<section className='CardEpisodes_Col--Card'>
@@ -10,15 +10,11 @@ const CardIndividual = ({ epis, type }) => {
 					<span>{epis.name}</span>
 					<span>{epis.air_date}</span>
 				</div>
-				{type === "1" ? (
-					<div>
-						{epis.charactersUrl.map((charsUrl) => (
-							<CharactersEpisodes urlCharacter={charsUrl} key={charsUrl} />
-						))}
-					</div>
-				) : (
-					""
-				)}
+				<div>
+					{epis.charactersUrl.map((url) => (
+						<CharactersEpisodes value={url} key={url} />
+					))}
+				</div>
 			</section>
 		</Card>
 	);

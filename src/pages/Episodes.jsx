@@ -31,7 +31,6 @@ const Episodes = () => {
 					style={{ width: "55%", marginBottom: "50px" }}
 					enterButton
 				/>
-				<p>Loading</p>
 				{loading && <Spin size='large' />}
 				<CardEpisodes data={data} />
 			</Col>

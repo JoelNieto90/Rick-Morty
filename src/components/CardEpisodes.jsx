@@ -17,7 +17,7 @@ function CardEpisodes({ data }) {
 						className='CardEpisodes_Col'
 						key={epi.id}
 					>
-						<CardIndividual epis={epi} type='1' />
+						<CardIndividual epis={epi} />
 					</Col>
 				))}
 			</Row>

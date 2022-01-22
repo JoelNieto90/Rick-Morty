@@ -1,27 +1,30 @@
-import { React, useEffect, useState } from "react";
-import { Row, Col } from "antd";
-import { getDataCharactersByID } from "../services/getDataCharacters";
+import { Row, Col, Spin } from "antd";
 import ModalCharacter from "../components/ModalCharacter";
+import { useFetchCharactersByID } from "../hooks/useFetchCharactersByID";
 
-const CharactersEpisodes = ({ urlCharacter }) => {
-  const [url, setUrl] = useState([]);
+const CharactersEpisodes = ({ value }) => {
+  const { data, loading } = useFetchCharactersByID(value);
 
-  useEffect(() => {
-    getDataCharactersByID(urlCharacter).then((data) => {
-      setUrl(data);
-    });
-  }, [urlCharacter]);
+	return (
+		<Row gutter={24}>
+			<Col span={24}>
+				{loading && <Spin size='large' />}
+				<p
+					style={{
+						display: "flex",
+						flexDirection: "row",
+						justifyContent: "center",
+						alignItems: "center",
+					}}
+        >{data.name}</p>
+        <ModalCharacter data={data} />
+			</Col>
+		</Row>
+	);
+};
 
-  return (
-    <Row gutter={24}>
-      <Col span={24}>
-        <p style={{ display: "flex", flexDirection: "row", justifyContent: "center", alignItems: "center" }}>
-          {url.name}
-        </p>
-        <ModalCharacter data={url} />
-      </Col>
-    </Row>
-  );
+CharactersEpisodes.defaultProps = {
+	value: "https://rickandmortyapi.com/api/character",
 };
 
 export default CharactersEpisodes;

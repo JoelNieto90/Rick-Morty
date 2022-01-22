@@ -1,5 +1,5 @@
-export function getDataCharacters() {
-	return fetch(`https://rickandmortyapi.com/api/character`)
+export function getDataCharacters(value) {
+	return fetch(`${value}`)
 		.then((response) => response.json())
 		.then((data) => {
 			return data.results.map(
@@ -34,8 +34,8 @@ export function getDataCharacters() {
 		.catch((error) => console.log(error));
 }
 
-export function getDataCharactersByID(url) {
-	return fetch(`${url}`)
+export function getDataCharactersByID(value) {
+	return fetch(`${value}`)
 		.then((response) => response.json())
 		.then(
 			({

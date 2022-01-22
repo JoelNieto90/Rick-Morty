@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
-import { getDataCharacters } from "../services/getDataCharacters";
+import { getDataCharactersByID } from "../services/getDataCharacters";
 
-export const useFetchCharacters = (value) => {
+export const useFetchCharactersByID = (value) => {
 	const [chars, setChars] = useState({
 		data: [],
 		loading: true,
 	});
 
 	useEffect(() => {
-		getDataCharacters(value).then((data) =>
+		getDataCharactersByID(value).then((data) =>
 			setChars({
 				data: data,
 				loading: false,
