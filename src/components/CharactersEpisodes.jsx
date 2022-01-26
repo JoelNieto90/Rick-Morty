@@ -9,15 +9,21 @@ const CharactersEpisodes = ({ value }) => {
 		<Row gutter={24}>
 			<Col span={24}>
 				{loading && <Spin size='large' />}
-				<p
-					style={{
-						display: "flex",
-						flexDirection: "row",
-						justifyContent: "center",
-						alignItems: "center",
-					}}
-        >{data.name}</p>
-        <ModalCharacter data={data} />
+				{!loading && (
+					<>
+						<p
+							style={{
+								display: "flex",
+								flexDirection: "row",
+								justifyContent: "center",
+								alignItems: "center",
+							}}
+						>
+							{data.name}
+						</p>
+						<ModalCharacter data={data} />
+					</>
+				)}
 			</Col>
 		</Row>
 	);

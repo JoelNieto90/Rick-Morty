@@ -27,8 +27,8 @@ export function getDataEpisodes(searchName) {
 					url: episode.url,
 					created: episode.create,
 					img: images[i],
-				};
-			});
+				}
+			})
 		})
 		.catch((error) => console.log(error));
 }
